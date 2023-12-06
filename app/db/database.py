@@ -5,8 +5,8 @@ from sqlalchemy import Column, Integer, String, Float, DateTime, func
 from app.config import EnvDetails
 
 
-DATABASE_URL = f"postgresql+asyncpg://{EnvDetails.DATABASE_USER}:{EnvDetails.DATABASE_PASSWORD}@{EnvDetails.DATABASE_HOST}/{EnvDetails.DATABASE_NAME}"
-DATABASE_URL_SYNC = f"postgresql://{EnvDetails.DATABASE_USER}:{EnvDetails.DATABASE_PASSWORD}@{EnvDetails.DATABASE_HOST}/{EnvDetails.DATABASE_NAME}"
+DATABASE_URL = f"postgresql+asyncpg://{EnvDetails.DATABASE_USER}:{EnvDetails.DATABASE_PASSWORD}@{EnvDetails.DATABASE_HOST}:{EnvDetails.DATABASE_PORT}/{EnvDetails.DATABASE_NAME}"
+DATABASE_URL_SYNC = f"postgresql://{EnvDetails.DATABASE_USER}:{EnvDetails.DATABASE_PASSWORD}@{EnvDetails.DATABASE_HOST}:{EnvDetails.DATABASE_PORT}/{EnvDetails.DATABASE_NAME}"
 
 async_engine = create_async_engine(DATABASE_URL, echo=True)
 AsyncSessionLocal = sessionmaker(
